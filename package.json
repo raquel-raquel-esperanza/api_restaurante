@@ -20,5 +20,8 @@
   "homepage": "https://github.com/raquel-raquel-esperanza/api_restaurante#readme",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "prisma": "^6.19.3"
   }
 }
