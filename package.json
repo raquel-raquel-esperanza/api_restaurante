@@ -1,15 +1,23 @@
 {
-  "name": "api_restaurante",
+  "name": "api_restaurant",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raquel-raquel-esperanza/api_restaurante.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/raquel-raquel-esperanza/api_restaurante/issues"
+  },
+  "homepage": "https://github.com/raquel-raquel-esperanza/api_restaurante#readme",
   "dependencies": {
     "express": "^5.2.1"
   }
