@@ -10,7 +10,7 @@ const obtenerMesas = async (req, res) => {
 }
 
 //funcion para obtener una mesa por su ID
-const obtenerMesaPorId = async (req, res) => {
+const obtenerMesaById = async (req, res) => {
     // obtener el id de la ruta
     const idMesa = Number(req.params.id)
     // select * from mesas where id = idMesa
@@ -27,7 +27,7 @@ const obtenerMesaPorId = async (req, res) => {
 }
 
 // funcion para crear una nueva mesa
-const nuevaMesa = async (req, res) => {
+const crearMesa = async (req, res) => {
     // obtenemos los datos para crear la mesa (body/formulario)
     const { numero, capacidad, disponible } = req.body
 
@@ -88,8 +88,8 @@ const desactivarMesa = async (req, res) => {
 // exportando los metodos para ocuparlos en cualquier lugar
 module.exports = {
     obtenerMesas,
-    obtenerMesaPorId,
-    nuevaMesa,
+    obtenerMesaById,
+    crearMesa,
     actualizarMesa,
     desactivarMesa
 }

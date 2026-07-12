@@ -1,3 +1,8 @@
+const jwt = require('jsonwebtoken')
+
+const SECRET = 'clave_secreta_123'
+
+// verifica que el token sea válido
 const verificarToken = (req, res, next) => {
     const authHeader = req.headers['authorization']
 

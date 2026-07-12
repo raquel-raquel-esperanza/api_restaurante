@@ -66,7 +66,7 @@ const login = async (req, res) => {
 
     // generar el token, recibimos el PAYLOAD (datos del usuario)
     // SECRET es la firma secreta que usa el servidor para generar y verificar el token
-    // en este caso va expirar en 8 hora
+    // en este caso va expirar en 8 horas
     const token = jwt.sign(
         { id: usuario.id, correo: usuario.correo, rol: usuario.rol },
         SECRET,
