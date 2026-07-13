@@ -21,3 +21,4 @@ app.get('/', (req, res) => {
 // usando las rutas de las mesas
 app.use('/api/v1/mesas', mesasRoutes)
 app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/reservaciones', reservacionesRoutes)

@@ -3,17 +3,17 @@ const prisma = require('../prisma/client')
 
 // metodo para obtener todas las reservaciones
 //funcion asincrona: funcion que se ejecuta en segundo plano
-const obtenerReservaciones = async (req, res) => {
-    //select * from reservaciones  = findMany()
-    const lista_reservaciones = await prisma.reservacion.findMany();
-    res.status(200).json(lista_reservaciones)
+const obtenerReservaciones  = async (req, res) => {
+    //select * from reservacion  = findMany()
+    const lista_reservacion = await prisma.reservacion.findMany();
+    res.status(200).json(lista_reservacion)
 }
 
 //funcion para obtener una reservacion por su ID
 const obtenerReservacionById = async (req, res) => {
     // obtener el id de la ruta
     const idReservacion = Number(req.params.id)
-    // select * from reservaciones where id = idReservacion
+    // select * from reservacion where id = idReservacion
     const reservacion = await prisma.reservacion.findUnique({
         where: { id: idReservacion },
     });
@@ -29,16 +29,18 @@ const obtenerReservacionById = async (req, res) => {
 // funcion para crear una nueva reservacion
 const crearReservacion = async (req, res) => {
     // obtenemos los datos para crear la reservacion (body/formulario)
-    const { nombre, email, fecha, hora, personas } = req.body
+    const { id, fecha, hora, personas, estado, usuario_id, mesa_id } = req.body
 
-    // INSERT INTO reservaciones (nombre, email, fecha, hora, personas) VALUES ('John Doe', 'john@example.com', '2023-10-10', '19:00', 4)
+    // INSERT INTO reservaciones (id, fecha, hora, personas, estado, usuario_id, mesa_id) VALUES (1, '2023-10-10', '19:00', 4, 'activa', 1, 1)
     const nuevaReservacion = await prisma.reservacion.create({
         data: {
-            nombre,
-            email,
+            id,
             fecha,
             hora,
-            personas
+            personas,
+            estado,
+            usuario_id,
+            mesa_id 
         },
     });
 
