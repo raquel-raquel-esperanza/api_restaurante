@@ -28,22 +28,22 @@ const obtenerReservacionById = async (req, res) => {
 
 // funcion para crear una nueva reservacion
 const crearReservacion = async (req, res) => {
-    // obtenemos los datos para crear la reservacion (body/formulario)
-    const { id, fecha, hora, personas, estado, usuario_id, mesa_id } = req.body
+    const { fecha, hora, personas, estado, usuario_id, mesa_id } = req.body
 
-    // INSERT INTO reservaciones (id, fecha, hora, personas, estado, usuario_id, mesa_id) VALUES (1, '2023-10-10', '19:00', 4, 'activa', 1, 1)
     const nuevaReservacion = await prisma.reservacion.create({
         data: {
-            id,
             fecha,
             hora,
             personas,
             estado,
-            usuario_id,
-            mesa_id 
+            usuario: {
+                connect: { id: usuario_id }
+            },
+            mesa: {
+                connect: { id: mesa_id }
+            }
         },
     });
-
     // 201 = CREATED SUCCESUFFLY
     res.status(201).json({
         message: "Reservacion registrada correctamente",

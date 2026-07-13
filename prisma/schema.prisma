@@ -31,18 +31,17 @@ model Mesa {
   @@map("mesas")
 }
 
-model Reservacion {
-  id         Int      @id @default(autoincrement())
-  fecha      DateTime @db.Date
-  hora       DateTime @db.Time
-  personas   Int
-  estado     Estado   @default(pendiente)
-  usuarioId  Int      @map("usuario_id")
-  mesaId     Int      @map("mesa_id")
-  createdAt  DateTime @default(now()) @map("created_at")
+model reservacion {
+  id          Int       @id @default(autoincrement())
+  fecha       Date
+  hora        DateTime
+  personas    Int
+  estado      String
+  usuario     usuario   @relation(fields: [usuario_id], references: [id])
+  usuario_id  Int
+  mesa        mesa      @relation(fields: [mesa_id], references: [id])
+  mesa_id     Int
 
-  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
-  mesa       Mesa     @relation(fields: [mesaId], references: [id])
 
   @@map("reservaciones")
 }

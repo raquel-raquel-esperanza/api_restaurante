@@ -4,6 +4,8 @@ const app = express()
 const mesasRoutes = require('./routes/mesa.routes')
 app.use(express.json())
 const authRoutes = require('./routes/auth.routes')
+ // declarando las rutas de las reservaciones  
+const reservacionesRoutes = require('./routes/reservaciones.routes')  
 
 app.listen(3000, () => {
     console.log("Hola, este es el servidor http://localhost:3000/")
